@@ -1,0 +1,11 @@
+# Python
+/.venv
+/venv
+
+# IDE/Editor-specific files
+.vscode/
+.idea/
+*.iml
+
+# Environment variables
+/.env
