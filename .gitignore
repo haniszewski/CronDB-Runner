@@ -1,6 +1,6 @@
 # Python
 /.venv
-/venv
+/venvr
 
 # IDE/Editor-specific files
 .vscode/
