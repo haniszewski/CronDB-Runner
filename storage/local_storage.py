@@ -35,3 +35,12 @@ class LocalStorage(storage.Storage):
             
         # Still did not copy backup with success
         return False
+    
+    def remove_backup(self,dest_info):
+        dest_path = ''
+
+        if os.path.exists(dest_path):
+            os.remove(dest_path)
+        else:
+            # File doesnt exists already
+            None
