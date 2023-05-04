@@ -1,6 +1,7 @@
 from . import storage
 
 import os
+import shutil
 
 class LocalStorage(storage.Storage):
     def __init__(self,storage_root_path):
@@ -16,8 +17,21 @@ class LocalStorage(storage.Storage):
             # Source file does not exist, something went wrong on pg_dump
             return False
         
+        # Create dest_dir and dest_path from dest
         dest_dir = ''
-        
+        dest_path = ''
 
+        if os.path.exists(dest_dir) and os.path.isdir(dest_dir):
+            if os.path.exists(dest_path):
+                # Destination path/file already exists
+                return False
 
+            # Move backup to destination
+            shutil.move(source_path,dest_path)
+
+            if os.path.exists(dest_path):
+                # Copied succesfully
+                return True
+            
+        # Still did not copy backup with success
         return False
