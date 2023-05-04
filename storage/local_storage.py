@@ -44,3 +44,10 @@ class LocalStorage(storage.Storage):
         else:
             # File doesnt exists already
             None
+
+    def check_connection(self):
+        # Could be simplfied but set for later
+        if os.path.isdir(self.root_path):
+            # Root path is OK, so True
+            return True
+        return False
