@@ -30,6 +30,7 @@ class StorageLocal(storage.Storage):
             shutil.move(source_path,dest_path)
 
             if os.path.exists(dest_path):
+                shutil.copy2(source_path,dest_path)
                 # Copied succesfully
                 return True
             
