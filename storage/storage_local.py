@@ -3,7 +3,7 @@ from . import storage
 import os
 import shutil
 
-class LocalStorage(storage.Storage):
+class StorageLocal(storage.Storage):
     def __init__(self,storage_root_path):
         super().__init__()
         if storage_root_path == None:
