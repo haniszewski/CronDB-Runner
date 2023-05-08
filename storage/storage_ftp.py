@@ -37,5 +37,22 @@ class StorageFtp(storage.Storage):
     def get_free_space(self):
         None
 
-    def check_connection(self):
-        None
+    def check_connection(self,dest_info):
+        ftp_host = 'host.com'
+        ftp_port = 21
+        ftp_ssl = 4
+        ftp_user = 5
+        ftp_passwd = 6
+
+
+        ftp = FTP(source_address=(ftp_host,ftp_port),user=ftp_user,passwd=ftp_passwd,encoding='utf-8')
+        resp = ftp.connect()
+        if resp == '':
+            return False
+        resp = ftp.login()
+        if resp == '':
+            return False
+        ftp.close()
+        return True
+
+
